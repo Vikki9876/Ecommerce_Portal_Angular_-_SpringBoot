@@ -1,0 +1,10 @@
+/* product-details.css */
+
+::ng-deep .mat-mdc-radio-button .mdc-label {
+  color: white !important;
+}
+
+/* Also ensure the radio circle itself is visible on dark backgrounds */
+::ng-deep .mat-mdc-radio-button .mdc-radio__outer-circle {
+  border-color: white !important;
+}

@@ -1,0 +1,74 @@
+<section class="pt-20 pb-10 px-5 lg:px-20">
+  <h1 class="font-semibold text-2xl pb-6 border-b mb-10">Recent Reviews & Ratings</h1>
+
+  <div class="lg:grid grid-cols-12 gap-7">
+    
+    <div class="col-span-7 space-y-5">
+      <ng-container *ngFor="let item of reviews">
+        <app-product-review-card></app-product-review-card>
+      </ng-container>
+    </div>
+
+    <div class="col-span-5 mt-10 lg:mt-0">
+      <div class="space-y-5">
+        <h1 class="text-xl font-semibold">Product Ratings</h1>
+
+        <div class="flex items-center space-x-3 pb-5">
+          <app-star-rating/>
+          <p class="opacity-60 text-sm">6,678 Ratings & 450 Reviews</p>
+        </div>
+
+        <div class="space-y-4">
+          <div class="grid grid-cols-12 items-center gap-4">
+            <div class="col-span-3 text-sm font-medium text-gray-600">Excellent</div>
+            <div class="col-span-7">
+              <mat-progress-bar mode="determinate" value="70" class="rounded-full h-2"></mat-progress-bar>
+            </div>
+            <div class="col-span-2 text-xs text-gray-500 text-right">4,500</div>
+          </div>
+
+          <div class="grid grid-cols-12 items-center gap-4">
+            <div class="col-span-3 text-sm font-medium text-gray-600">Very Good</div>
+            <div class="col-span-7">
+              <mat-progress-bar mode="determinate" value="50" class="rounded-full h-2"></mat-progress-bar>
+            </div>
+            <div class="col-span-2 text-xs text-gray-500 text-right">1,200</div>
+          </div>
+
+          <div class="grid grid-cols-12 items-center gap-4">
+            <div class="col-span-3 text-sm font-medium text-gray-600">Good</div>
+            <div class="col-span-7">
+              <mat-progress-bar mode="determinate" value="30" class="rounded-full h-2"></mat-progress-bar>
+            </div>
+            <div class="col-span-2 text-xs text-gray-500 text-right">600</div>
+          </div>
+
+          <div class="grid grid-cols-12 items-center gap-4">
+            <div class="col-span-3 text-sm font-medium text-gray-600">Average</div>
+            <div class="col-span-7">
+              <mat-progress-bar mode="determinate" value="15" color="warn" class="rounded-full h-2"></mat-progress-bar>
+            </div>
+            <div class="col-span-2 text-xs text-gray-500 text-right">250</div>
+          </div>
+
+          <div class="grid grid-cols-12 items-center gap-4">
+            <div class="col-span-3 text-sm font-medium text-gray-600">Poor</div>
+            <div class="col-span-7">
+              <mat-progress-bar mode="determinate" value="10" color="warn" class="rounded-full h-2"></mat-progress-bar>
+            </div>
+            <div class="col-span-2 text-xs text-gray-500 text-right">128</div>
+          </div>
+        </div>
+      </div>
+    </div> </div> <section class="mt-20">
+    <h1 class="py-5 text-2xl font-semibold text-gray-700">Related Products</h1>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div *ngFor="let item of relatedProducts">
+        <app-product-card [product]="item"/>
+      </div>
+    </div>
+  </section>
+
+</section>
+
