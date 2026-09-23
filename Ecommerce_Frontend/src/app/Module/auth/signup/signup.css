@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  overflow: hidden;
+}
+
+h1 {
+  margin: 0 0 1rem 0;
+}
+
+/* Ensure the grid doesn't break on very small screens */
+.grid {
+  display: grid;
+}
+
+/* Matches the button style from your Signin component */
+.mat-mdc-raised-button {
+  height: 52px !important;
+  border-radius: 8px !important;
+}
