@@ -1,0 +1,33 @@
+<div class="w-full">
+    <div class="bg-gray-950 text-white w-full min-h-fit shadow-lg p-10">
+
+        <div class="flex flex-wrap justify-between gap-10">
+            
+            <div class="flex flex-col gap-6" *ngFor="let item of category[selectedSection].sections">
+                <h1 class="text-lg font-bold tracking-wide uppercase border-b border-gray-700 pb-2">
+                    {{item.name}}
+                </h1>
+                
+                <div class="flex flex-col items-start space-y-2">
+                    <button (click)="handleNavigate('/' + selectedSection + '/' + item.id + '/' + section.id)"  mat-button *ngFor="let section of item.items" class="px-0! text-left! h-auto! min-w-0! hover:text-gray-400">
+                        {{section.name}}
+                    </button>
+                </div>
+            </div>
+
+
+            @if (selectedSection && category[selectedSection]) {
+           <div class="hidden lg:flex gap-8">
+    <div class="flex flex-col gap-3 shrink-0" *ngFor="let promo of category[selectedSection].featured">
+        <div class="overflow-hidden rounded-md">
+            <img class="w-64 h-80 object-cover object-top"
+                 [src]="promo.image"
+                 [alt]="promo.title">
+        </div>
+        <p class="text-gray-500 text-xs font-medium uppercase">{{promo.title}}</p>
+    </div>
+</div>
+}
+        </div>
+    </div>
+</div>

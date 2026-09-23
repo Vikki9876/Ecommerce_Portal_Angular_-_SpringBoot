@@ -1,0 +1,73 @@
+<div class="fixed top-0 z-50 right-0 left-0 bg-[#03dac6] text-gray-800 shadow-md">
+
+  <div class="px-5 lg:px-20 h-16 flex items-center justify-between">
+
+    <div class="flex items-center">
+      <div class="mr-5">
+        <img class="h-10 w-auto rounded-full border-2 border-black/10"
+             src="https://t4.ftcdn.net/jpg/04/82/51/95/240_F_482519524_IXP4cGQD6qjvBhvQ2vzeoH981rAYYqiK.jpg"
+             alt="code with vivek">
+      </div>
+
+      <div class="flex items-center space-x-2">
+        <a [routerLink]="['/']" class="text-gray-800 font-semibold text-lg mr-4">
+          Shop with Vivek
+        </a>
+
+        <button class="open-button" (click)="openNavbarContent('men')" mat-button> 
+          Men 
+        </button>
+        
+        <button class="open-button" (click)="openNavbarContent('women')" mat-button> 
+          Women 
+        </button>
+      </div>
+    </div>
+
+    <div class="flex items-center space-x-4">
+      
+      <button (click)="handleCartClick()" mat-icon-button title="Shopping Cart">
+          <mat-icon>shopping_cart</mat-icon>
+         </button>
+
+      <button (click)="handleOpenLoginModal()" *ngIf="!userProfile" mat-raised-button color="accent">
+        LOGIN
+      </button>
+
+      <div *ngIf="userProfile" class="flex items-center space-x-2">
+        <span class="font-medium text-sm hidden md:block">{{userProfile.firstName}}</span>
+        
+        <button mat-button [matMenuTriggerFor]="profileMenu" class="min-w-0 p-1">
+          <img class="h-8 w-8 rounded-full border border-gray-400" 
+               src="https://cdn-icons-png.flaticon.com/512/149/149071.png" 
+               alt="User Avatar">
+        </button>
+
+        <mat-menu #profileMenu="matMenu">
+          <button (click)="navigateTo('account/orders')" mat-menu-item>
+            <mat-icon>history</mat-icon>
+            <span>Orders</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>person</mat-icon>
+            <span>Profile</span>
+          </button>
+          <mat-divider></mat-divider>
+          <button mat-menu-item (click)="handleLogout()">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </button>
+
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+@if (isNavbarContentOpen) {
+  <div class="absolute right-0 left-0 bg-white shadow-xl border-t border-gray-100 z-100">
+    <app-nav-content 
+      [selectedSection]="currentSection" 
+      (close)="closeNavbarContent()" 
+    />
+  </div>
+}
+</div>
